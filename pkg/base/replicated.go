@@ -5,11 +5,11 @@ import (
 	kotsv1beta1 "github.com/replicatedhq/kots/kotskinds/apis/kots/v1beta1"
 	"github.com/replicatedhq/kots/pkg/logger"
 	"github.com/replicatedhq/kots/pkg/template"
-	"github.com/replicatedhq/kots/pkg/upstream"
+	upstreamtypes "github.com/replicatedhq/kots/pkg/upstream/types"
 	"k8s.io/client-go/kubernetes/scheme"
 )
 
-func renderReplicated(u *upstream.Upstream, renderOptions *RenderOptions) (*Base, error) {
+func renderReplicated(u *upstreamtypes.Upstream, renderOptions *RenderOptions) (*Base, error) {
 	// Find the config for the config groups
 	var config *kotsv1beta1.Config
 	for _, upstreamFile := range u.Files {
